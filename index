@@ -1,0 +1,358 @@
+Enter file contents here
+	<!--
+	-- City University
+	-- BSc Computer Science
+	-- IN3007 Individual Project
+
+	-- Michael Lashley, 2nd March, 2015
+	-- Email: Michael.Lashley.1@city.ac.uk 
+
+	-- Supervisor: Dr Cagatay Turkay
+	-- Email: Cagatay.Turkay.1@city.ac.uk 
+
+	-- Project Title: ASIGM (Attribute Signature Interactive Geographical Map) Project
+	-- Official Project Title: WEB-BASED TOOL FOR INTERACTIVE VISUAL SUMMARY GENERATION OF GEOGRAPHICAL DATA
+	-->
+	<!DOCUMENT html>
+	<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--This meta tag ensures that the right website is selected for the right device-->
+		<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+		<link rel= "stylesheet" type="text/css" href= "css/bootstrap.min.css">
+		<link rel= "stylesheet" type="text/css" href= "css/custom-style.css" >
+		
+		<!--This link refers to the icons used in the website-->
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://d3js.org/d3.v2.js?2.9.1"></script>	
+		
+		<!--Refers to Dimple charts-->
+		<script src="/lib/d3.v3.4.8.js"></script>
+		<script src="http://dimplejs.org/dist/dimple.v2.1.2.min.js"></script>
+		
+		<!--Refers to Google Maps libraries and API-->
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=drawing"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://www.bdcc.co.uk/Gmaps/GDouglasPeuker.js"></script>
+		
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="http://d3js.org/topojson.v1.min.js"></script>		
+	</head>
+		
+	<body>
+	
+		<div class= "container"> 
+			<div class= "row text-center">
+				<p></p>
+				<a href= "#" class= "navbar-brand-center"><img src="images/logo_img_2.png" alt="center"></img></a>
+				<p></p>
+			</div>
+		</div>
+		<!--Navigation Bar Code-->
+		<div class= "navbar-custom">
+			<div class= "container">
+					
+					
+					<!--This button only appears in the mobile version of the website-->
+					<button class= "navbar-toggle" data-toggle= "collapse" data-target= ".navHeaderCollapse">
+						<span class= "icon-bar"></span>
+						<span class= "icon-bar"></span>
+						<span class= "icon-bar"></span>
+					</button>					
+					
+					<div class= "collapse navbar-collapse navHeaderCollapse">
+						<ul class= "nav navbar-nav navbar-right">
+							<li class= "active"><a href= "index.html">Home</a></li>
+							<li> <a href= "getting_started.html">Getting Started</a></li>
+							<li> 
+								
+								<a href= "documentation.html" class= "dropdown-toggle" data-toggle= "dropdown">Documentation <b class= "caret"></b></a>
+								<ul class= "dropdown-menu">
+									<li> <a href= "documentation.html#papers_">Academic Paper</a></li>
+									<li> <a href= "documentation.html#dataset_">Dataset</a></li>
+									<li> <a href= "documentation.html#design_">UML Diagrams</a></li>
+									<li> <a href= "documentation.html#manual_">User Manual</a></li>
+									<li> <a href= "documentation.html#other_">Other Useful Documents</a></li>
+									<li> <a href= "documentation.html#code_">ASIGM Source Code</a></li>
+								</ul>
+								
+							</li>
+							<li> <a href= "contact.html">Contact</a></li>
+						</ul>
+					</div>
+			</div>
+		</div>
+		
+		<!--Header Panel Bar Code-->
+		<div class= "bg">
+		<div class= "container">
+				<div class= "jumbotron">	
+							
+				<!--div class="bg"><img src="images/banner_2.jpg" class="img-rounded"></div-->
+					<center>
+					<h2>Attribute Signature Interactive Geographical Map</h2>
+					<p>ASIGM is an online platform which uses an Interactive Geographical Map to explore the statistics and trends in the 2011 UK census data through the use of Attribute Signatures (Charts). The attribute signatures provide interactively crafted graphics that show the geographic variability of statistics for the 41 variables in the dataset through which the extent of dependency between the attributes and geography can be visually explored. Original platform developed by PhD. Turkay, C., online Platform developed by Lashley, M.</p>
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-default btn-warning btn-lg" data-toggle="modal" data-target="#modal1">
+					  <i class="fa fa-play"></i>&nbsp Get Started
+					</button>
+					</center>
+				</div>
+		</div>
+		</div>
+		
+		<!-- Modal 1-->
+		<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-paint-brush"></i>&nbsp Brushing</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>Select one of the Interactive Selection Menu Tabs, “Shape Brush” or “Freehand Brush”, then draw a shape by clicking on any area on the map. Ensure that your shape is completed, and that the start and end points meet.</p>
+				<br></br>
+				<center>
+					<img src="images/ss1.jpg" alt="Brushing" style="width:500px;height:268px">
+				</center>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#modal2"><i class="fa fa-arrow-right"></i>&nbsp Next</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		<!-- Modal 2-->
+		<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-cogs"></i>&nbsp System</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>The system automatically calculates the variable averages for all points within your selection and generates the Attribute Signatures, displaying them just below the map.</p>
+				<br></br>
+				<center>
+					<img src="images/ss3.jpg" alt="Calculations" style="width:500px;height:477px">
+				</center>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#modal3"><i class="fa fa-arrow-right"></i>&nbsp Next</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<!-- Modal 3-->
+		<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil-square-o"></i>&nbsp Editing</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>Edit your shape by clicking the edit tab on the Interactive Selection Menu. Your shape will be highlighted and you can drag the white anchor points to any dimension to create a new shape. As your shape changes dimensions, the Attribute Signatures are updated.</p>
+				<br></br>
+				<center>
+					<img src="images/ss2.jpg" alt="Editing" style="width:500px;height:268px">
+				</center>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#modal4"><i class="fa fa-arrow-right"></i>&nbsp Next</button>
+			  </div>
+			</div>
+		  </div>
+		</div
+		
+		<!-- Modal 4-->
+		<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-smile-o"></i>&nbsp Done</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>Now have a go!</p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-check"></i>&nbsp Got it!</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		
+		<!-- Modal 5-->
+		<div class="modal modal-wide fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+			  
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-comments"></i>&nbsp Community Comments</h4>
+				
+			</div>
+			
+			<div class="modal-body">
+			<div id="disqus_thread"></div>
+				<script src="comments.js"></script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-check"></i>&nbsp Done</button>
+			</div>
+			
+			</div>
+		  </div>
+		</div>
+		
+		
+		<!--Map - Containers-->
+		<div class= "container">
+			<div class= "row">
+					
+				<!--This button only appears in the mobile version of the website-->
+				<button class= "navbar-inverse navbar-toggle" data-toggle= "collapse" data-target= ".navHeaderCollapse">
+					<span class= "icon-bar" style = "background-color:#ffffff"></span>
+					<span class= "icon-bar" style = "background-color:#ffffff"></span>
+					<span class= "icon-bar" style = "background-color:#ffffff"></span>
+				</button>
+
+				<div class= "collapse navbar-collapse navHeaderCollapse">
+					<ul class= "nav navbar-nav navbar-right">
+						<li class="infowindow"><a href="#"><i class="fa fa-info-circle"></i>&nbsp Info</a></li>  
+						<li class= "dropdown"> 
+							<a href= "#" class= "dropdown-toggle" data-toggle= "dropdown"><i class="fa fa-trash-o"></i>&nbsp Clear<b class= "caret"></b></a>
+							<ul class= "dropdown-menu">
+								<li class="clear"><a href="#"><i class="fa fa-trash-o"></i>&nbsp Current Shape</a></li> 
+								<li class="all"><a href="#"><i class="fa fa-trash-o"></i>&nbsp All Shapes</a></li> 
+							</ul>
+						</li>						
+						<li class="edit"><a href="#"><i class="fa fa-pencil-square-o"></i>&nbsp Edit</a></li>  
+						<li class= "dropdown"> 
+							<a href= "#" class= "dropdown-toggle" data-toggle= "dropdown"><i class="fa fa-paint-brush"></i>&nbsp Brush<b class= "caret"></b></a>
+							<ul class= "dropdown-menu">
+								<li class="draw"><a href="#"><i class="fa fa-paint-brush"></i>&nbsp Shape Brush</a></li> 
+								<li class="drawfreehand"><a href="#"><i class="fa fa-paint-brush"></i>&nbsp Freehand Brush</a></li> 
+							</ul>
+						</li>
+						<li class= "dropdown"> 
+							<a href= "#" class= "dropdown-toggle" data-toggle= "dropdown"><i class="fa fa-eye"></i>&nbsp Display<b class= "caret"></b></a>
+							<ul class= "dropdown-menu">
+								<li class="clearmarkers"><a href="#"><i class="fa fa-eye-slash"></i>&nbsp clearmarkers</a></li> 
+								<li class="showmarkers"><a href="#"><i class="fa fa-eye"></i>&nbsp showmarkers</a></li> 
+							</ul>
+						</li>
+						<li class= "dropdown"> 
+							<a href= "#" class= "dropdown-toggle" data-toggle= "dropdown"><i class="fa fa-sort"></i>&nbsp Sort Chart<b class= "caret"></b></a>
+							<ul class= "dropdown-menu">
+								<li class="sortON"><a href="#"><i class="fa fa-sort-amount-desc"></i>&nbsp Sort ON</a></li>
+								<li class="sortOFF"><a href="#"><i class="fa fa-times-circle"></i>&nbsp Sort OFF</a></li>
+							</ul>
+						</li>
+						<li class= "dropdown"> 
+							<a href= "#" class= "dropdown-toggle" data-toggle= "dropdown"><i class="fa fa-bar-chart"></i>&nbsp Attribute Signature<b class= "caret"></b></a>
+							<ul class= "dropdown-menu">
+								<li class="bChart"><a href="#"><i class="fa fa-bar-chart"></i>&nbsp Bar Chart</a></li> 
+								<li class="lChart"><a href="#"><i class="fa fa-line-chart"></i>&nbsp Line Chart</a></li> 
+								<li class="sChart"><a href="#"><i class="fa fa-circle"></i>&nbsp Scatter-plot Chart</a></li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+						
+				<section id="placeholder">
+					<script src="index.js"></script>
+					<div id="map" ></div>	
+				</section>
+			</div>
+		</div>
+		
+		<!--Attribute Signatures - Container-->
+		<div class= "custom-background"> 
+			<div class= "container"> 
+			
+				<div class= "row text-center">
+					<p></p>
+					<h3>Attribute Signatures</h3>
+					<p></p>
+					
+					<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+					<div class="row">
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp AGE:0-4</div><div class= "img-responsive" id="chartContainer1" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp AGE:5-14</div><div id="chartContainer2" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp AGE:25-44</div><div id="chartContainer3" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp AGE:45-64</div><div id="chartContainer4" ></div></div>	  
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp AGE:65+</div><div id="chartContainer5" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp ETH:Indian</div><div id="chartContainer6" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp ETH:Black</div><div id="chartContainer7" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp ETH:ForeignBorn</div><div id="chartContainer8" ></div></div> 
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp AREA:Density</div><div id="chartContainer9" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HH:Separated</div><div id="chartContainer10" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HH:LiveAlone</div><div id="chartContainer11" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HH:PensAlone</div><div id="chartContainer12" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HH:LoneParent</div><div id="chartContainer13" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HH:CoupleNoChild</div><div id="chartContainer14" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HH:NonDependents</div><div id="chartContainer15" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:PublicRent</div><div id="chartContainer16" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:PrivateRent</div><div id="chartContainer17" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:Terraced</div><div id="chartContainer18" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:Detached</div><div id="chartContainer19" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:Flats</div><div id="chartContainer20" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:NoHeating</div><div id="chartContainer21" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:NumRooms</div><div id="chartContainer22" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HO:NumPerRoom</div><div id="chartContainer23" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp ED:HigherEd</div><div id="chartContainer24" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:RegularEmpl</div><div id="chartContainer25" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp TR:>2Cars</div><div id="chartContainer26" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp TR:CommutePublicTr</div><div id="chartContainer27" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp TR:WorkFromHome</div><div id="chartContainer28" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HEA:LongTermIllness</div><div id="chartContainer29" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp HEA:UnpaidCare</div><div id="chartContainer30" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:FullTimeStudent</div><div id="chartContainer31" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:Unemployed</div><div id="chartContainer32" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:PartTimeWork</div><div id="chartContainer33" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:CareFamily</div><div id="chartContainer34" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:AgricultFishing</div><div id="chartContainer35" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:Mining/constrn</div><div id="chartContainer36" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:Manufacturing</div><div id="chartContainer37" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:HotelCatering</div><div id="chartContainer38" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:HealthSocialWork</div><div id="chartContainer39" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:Financial</div><div id="chartContainer40" ></div></div>
+					  <div class="col-xs-12 col-sm-6 col-md-4"><div class="icon-cog"><i class="fa fa-bar-chart"></i>&nbsp EM:WholesaleRetail</div><div id="chartContainer41" ></div></div>
+					</div>
+					<p></p>
+					<div class="icon-cog-2"><i class="fa fa-bar-chart"></i>&nbsp Full Chart (Containing all 41 attributes)</div>
+					<div class="img-responsive" id="chartContainer" ></div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!--Academic Paper Code-->
+		<div id= "comments_">
+			<!--Footer Bar - Container-->
+			<div class= "navbar navbar-custom navbar-static-bottom">
+				<div class= "container">
+					<p class= "navbar-text pull-left">Copyright 2014 City University London. All rights reserved.</p>
+					<!-- <a class= "navbar-btn btn-success btn pull-right" href= "contact.html"><i class="fa fa-comments"></i>&nbsp Leave a comment...<a/> -->
+					<a class= "navbar-btn btn-success btn pull-right" data-dismiss="modal" data-toggle="modal" data-target="#modal5"><i class="fa fa-comments"></i>&nbsp Leave a comment...<a/>
+				</div>	
+			</div>
+		</div>
+		
+		<script src= "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src= "js/bootstrap.js"></script>
+		
+	</body>
+</html>
