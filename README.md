@@ -1,0 +1,3 @@
+# asigm.github.io
+The ASIGM (Attribute Signature Interactive Geographical Map) prototype platform.
+This is a sample test...
